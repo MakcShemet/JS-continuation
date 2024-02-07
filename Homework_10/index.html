@@ -61,6 +61,9 @@
         font-weight: 600;
         color: firebrick;
       }
+      .active {        
+        border: 2px solid green;
+      }
     </style>
 
     <div class="content"></div>
@@ -91,9 +94,12 @@
             galleryImg.src = src;
             productGallery.appendChild(galleryImg);
             galleryImg.style.cursor = "pointer";
-            galleryImg.addEventListener("click", (e) => {
-            imgEl.src = e.target.src;
-        });
+            productGallery.addEventListener("click", (e) => {
+              imgEl.src = e.target.src;              
+              e.target.classList.add("active");
+              if(galleryImg !== e.target)
+              galleryImg.classList.remove("active");
+            }); 
         });        
 
         const productTitle = document.createElement("a");
