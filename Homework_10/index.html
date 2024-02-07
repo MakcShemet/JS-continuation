@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data JSON</title>
+  </head>
+  <body>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .product {
+        width: 250px;
+        padding: 16px;
+        border: 1px solid #acacac;
+      }
+      .product__img {
+        width: 100%;
+        max-height: 115px;
+      }
+      .product__gallery{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .product__gallery_image {
+        width: 20%;
+        margin: 1px;
+        border: 1px solid #000;
+      }
+    </style>
+
+    <div class="content"></div>
+
+    <script src="data.js"></script>
+    <script>
+      "use strict";
+
+      const productsData = JSON.parse(datainfo);
+
+      const productBox = document.querySelector(".content");
+
+      productsData.forEach((productData) => {
+        const productEl = document.createElement("div");
+        productEl.classList.add("product");
+
+        const imgEl = document.createElement("img");
+        imgEl.classList.add("product__img");
+        imgEl.setAttribute("alt", productData.alt);
+        imgEl.src = productData.thumbnail;
+
+        const productGallery = document.createElement("div");
+        productGallery.classList.add("product__gallery");        
+          
+        productData.images.forEach((src) => {
+            const galleryImg = document.createElement("img");
+            galleryImg.classList.add("product__gallery_image");                   
+            galleryImg.src = src;
+            productGallery.appendChild(galleryImg);
+            galleryImg.style.cursor = "pointer";
+            galleryImg.addEventListener("click", (e) => {
+            imgEl.src = e.target.src;
+        });
+        });        
+
+        const productTitle = document.createElement("a");
+        productTitle.classList.add("product__title");
+        productTitle.href = productData.link;
+        productTitle.textContent = productData.title;
+        
+
+        const productContent = document.createElement("div");
+        productContent.classList.add("product__content");
+
+        const descText = document.createElement("p");
+        descText.classList.add("product__text");
+        descText.textContent = productData.description;
+
+        const brandEl = document.createElement("p");
+        brandEl.classList.add("product__brand");
+        brandEl.textContent = productData.brand;
+
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("product__price");
+        productPrice.textContent = productData.price + '$';
+
+        productBox.appendChild(productEl);
+        productEl.appendChild(imgEl);
+        productContent.appendChild(productGallery);        
+        productEl.appendChild(productContent);
+        productContent.appendChild(productTitle);
+        productContent.appendChild(brandEl);
+        productContent.appendChild(descText);
+        productContent.appendChild(productPrice);
+      });
+    </script>
+  </body>
+</html>
