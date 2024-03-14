@@ -35,7 +35,7 @@ class Student {
     }
 
     displayInfo() {
-        console.log('Name: ', this.title, '\nAge: ', this.author, '\nGrade: ', this.pages);
+        console.log('Name: ', this.name, '\nAge: ', this.age, '\nGrade: ', this.grade);
     }
 }
 
