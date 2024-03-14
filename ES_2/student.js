@@ -34,7 +34,7 @@ class Student {
         this.displayInfo = this.displayInfo.bind(this);
     }
 
-    displayInfo() {
+    displayInfo = () => {
         console.log('Name: ', this.name, '\nAge: ', this.age, '\nGrade: ', this.grade);
     }
 }

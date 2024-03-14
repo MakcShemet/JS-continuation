@@ -19,7 +19,7 @@ class Book {
         this.displayInfo = this.displayInfo.bind(this);
     }
 
-    displayInfo() {
+    displayInfo = () => {
         console.log('Название книги: ', this.title, '\nАвтор: ', this.author, '\nКоличество страниц: ', this.pages);
     }
 }
