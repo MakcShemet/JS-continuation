@@ -79,3 +79,13 @@ saveUserData(user);
 // Пример использования функции
 // changeStyleDelayed('myElement', 2000); // Через 2 секунды изменяет стиль элемента с id 'myElement'"
 
+function changeStyleDelayed(id, time) {
+    const divEl = document.querySelector('#' + id);
+    setTimeout(() => {
+        divEl.style.backgroundColor = 'orange';
+        divEl.textContent = 'This element is changed';
+
+    }, time);
+}
+
+changeStyleDelayed('changedElement', 3000)
