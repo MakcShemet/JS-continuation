@@ -64,7 +64,7 @@ function saveUserData(user) {
         }
     }).then((response) => {
         if (!response.ok) {
-            throw new Error(`Ошибка ответа сервера`);
+            throw new Error(`Ошибка отправки данных`);
         } else {
             console.log('User data saved successfully');
         }
