@@ -65,7 +65,7 @@ class Manager {
       if (quantity <= 0) {
         throw new Error(`Указано неверное количество блюд: ${quantity}. Должно быть больше 0`);
       }
-
+      // Проверяем наличие заказанного блюда в меню
       if (menu.has(type) && menu.get(type).includes(name)) {
         // Находим повара для приготовления блюда
         cooks.forEach((value, key) => {
