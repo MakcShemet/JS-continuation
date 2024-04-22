@@ -34,9 +34,12 @@ keys.forEach(key => {
         removeReviewBtn.addEventListener('click', () => {
             const indexEl = reviewText.indexOf(reviewElement);
             reviewText.splice(indexEl, 1);
+
             if (reviewText.length > 0) {
+                review.remove();
                 localStorage.setItem(key, JSON.stringify(reviewText));
             } else {
+                listElement.remove();
                 localStorage.removeItem(key);
             }
         })
