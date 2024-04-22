@@ -41,6 +41,7 @@ h1 {
   &__review {
     max-width: 460px;
     height: auto;
+    margin: 0 auto;
     & input[type="text"] {
       width: 100%;
       padding: 8px 16px;
