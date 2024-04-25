@@ -1,0 +1,82 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  width: calc(100% - 860px / 2);
+}
+
+.shedule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: solid 3px #bcbcbc;
+  margin-top: 16px;
+  width: 100%;
+  padding: 20px 15px;
+}
+
+.training {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 4px 10px #bfbfbf;
+}
+
+.buttons-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: solid 1px lightgray;
+}
+
+.sign-up,
+.cancel {
+  padding: 8px 16px;
+  text-align: center;
+  background-color: rgb(47, 88, 224);
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #2242a2;
+  cursor: pointer;
+}
+
+.deactivate {
+  padding: 8px 16px;
+  text-align: center;
+  background-color: #dadada;
+  color: #b9b9b9;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #b9b9b9;
+}
