@@ -1,13 +1,40 @@
-﻿let countCurrent = 0;
+﻿'use strict'
 
-let maxCount = 0;
+const buttonsGroup = document.querySelectorAll('.buttons-block')
 
-const signUppButtons = document.querySelectorAll('.sign-up');
-const shedule = JSON.parse(localStorage.getItem('shedule'));
 
-signUppButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const training = button.closest('.training');
-        if (training.id === )
+buttonsGroup.forEach(buttons => {
+    const trainingEl = buttons.closest('.training');
+    const currentParticipantsEl = trainingEl.querySelector('.currentParticipants');
+
+    buttons.addEventListener('click', (e) => {
+        if (e.target.classList.contains('sign-up')) {
+            shedule.forEach(training => {
+                if (trainingEl.id == training.id) {
+                    training.currentParticipants += 1;
+                    training.flag = true;
+                    localStorage.setItem('shedule', JSON.stringify(shedule));
+                    // training.currentParticipants = JSON.stringify(training.currentParticipants);
+                    currentParticipantsEl.textContent = `Записалось: ${training.currentParticipants}`;
+                    e.target.className = 'deactivate';
+                    e.target.nextSibling.className = 'cancel';
+                }
+            });
+
+        }
+        if (e.target.classList.contains('cancel')) {
+            shedule.forEach(training => {
+                if (trainingEl.id == training.id) {
+                    training.currentParticipants -= 1;
+                    localStorage.setItem('shedule', JSON.stringify(shedule));
+                    currentParticipantsEl.textContent = `Записалось: ${training.currentParticipants}`;
+                    e.target.className = 'deactivate';
+                    e.target.previousSibling.className = 'sign-up';
+                    training.flag = false;
+                    console.log(training.currentParticipants);
+                }
+
+            });
+        }
     })
 });

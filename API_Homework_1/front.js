@@ -3,7 +3,6 @@
 const sheduleEl = document.querySelector('.shedule');
 
 const shedule = JSON.parse(localStorage.getItem('shedule'));
-console.log(shedule);
 
 shedule.forEach(objTraining => {
     const trainingEl = document.createElement('div')
@@ -21,10 +20,12 @@ shedule.forEach(objTraining => {
     trainingEl.append(trainingTime);
 
     const maxParticipantsEl = document.createElement('div');
+    maxParticipantsEl.classList.add('maxParticipants');
     maxParticipantsEl.textContent = `Группа (макс.): ${objTraining.maxParticipants}`;
     trainingEl.append(maxParticipantsEl);
 
     const currentParticipantsEl = document.createElement('div');
+    currentParticipantsEl.classList.add('currentParticipants');
     currentParticipantsEl.textContent = `Записалось: ${objTraining.currentParticipants}`;
     trainingEl.append(currentParticipantsEl);
 
@@ -33,14 +34,16 @@ shedule.forEach(objTraining => {
     trainingEl.append(buttonsBlock);
 
     const signUpBtn = document.createElement('button');
-    objTraining.currentParticipants === objTraining.maxParticipants ?
-        signUpBtn.classList.add('deactivate') :
+    (objTraining.currentParticipants === objTraining.maxParticipants || objTraining.flag === true) ?
+        signUpBtn.className = 'deactivate' :
         signUpBtn.classList.add('sign-up');
     signUpBtn.textContent = 'Записаться';
     buttonsBlock.append(signUpBtn);
 
     const cancelBtn = document.createElement('button');
-    cancelBtn.classList.add('cancel');
+    objTraining.flag === true ?
+        cancelBtn.classList.add('cancel') :
+        cancelBtn.className = 'deactivate';
     cancelBtn.textContent = 'Отмена';
     buttonsBlock.append(cancelBtn);
 });

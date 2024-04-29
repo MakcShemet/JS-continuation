@@ -34,6 +34,8 @@
         "maxParticipants": 8,
         "currentParticipants": 6
     }
-];
+]
 
-localStorage.setItem('shedule', JSON.stringify(dataShedule));
+
+if (localStorage.length == 0)
+    localStorage.setItem('shedule', JSON.stringify(dataShedule));
