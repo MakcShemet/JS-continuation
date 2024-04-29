@@ -14,7 +14,6 @@ buttonsGroup.forEach(buttons => {
                     training.currentParticipants += 1;
                     training.flag = true;
                     localStorage.setItem('shedule', JSON.stringify(shedule));
-                    // training.currentParticipants = JSON.stringify(training.currentParticipants);
                     currentParticipantsEl.textContent = `Записалось: ${training.currentParticipants}`;
                     e.target.className = 'deactivate';
                     e.target.nextSibling.className = 'cancel';
