@@ -12,7 +12,7 @@ buttonsGroup.forEach(buttons => {
             shedule.forEach(training => {
                 if (trainingEl.id == training.id) {
                     training.currentParticipants += 1;
-                    training.flag = true;
+                    training.isSignUp = true;
                     localStorage.setItem('shedule', JSON.stringify(shedule));
                     currentParticipantsEl.textContent = `Записалось: ${training.currentParticipants}`;
                     e.target.className = 'deactivate';
@@ -25,12 +25,11 @@ buttonsGroup.forEach(buttons => {
             shedule.forEach(training => {
                 if (trainingEl.id == training.id) {
                     training.currentParticipants -= 1;
+                    training.isSignUp = false;
                     localStorage.setItem('shedule', JSON.stringify(shedule));
                     currentParticipantsEl.textContent = `Записалось: ${training.currentParticipants}`;
                     e.target.className = 'deactivate';
                     e.target.previousSibling.className = 'sign-up';
-                    training.flag = false;
-                    console.log(training.currentParticipants);
                 }
 
             });
